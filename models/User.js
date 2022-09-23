@@ -2,7 +2,6 @@
 
 const Sequelize = require('sequelize');
 const sequelizeConnection = require('../config/sequelizeConnections');
-const sequilizeConnection = require('../config/sequelizeConnections');
 const bcrypt = require('bcrypt');
 
 const User = sequelizeConnection.define('user', {
