@@ -3,9 +3,30 @@
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.2",
+    "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
+    "inquirer": "^9.1.2",
     "mysql2": "^2.3.3",
     "sequelize": "^6.23.1"
-  }
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \" Error: no test specified\" && exit 1"
+  },
+  "name": "model-view-controller-mvc-challenge-tech-blog",
+  "description": "# Purpose",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brendasosa0721/Model-View-Controller-MVC-Challenge-Tech-Blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brendasosa0721/Model-View-Controller-MVC-Challenge-Tech-Blog/issues"
+  },
+  "homepage": "https://github.com/brendasosa0721/Model-View-Controller-MVC-Challenge-Tech-Blog#readme"
 }
