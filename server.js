@@ -35,6 +35,9 @@ const sess = {
 
 //  app.use(require('./controllers'));
 
+require('./models');
+
  app.listen(PORT , () => {
-    sequelizeConnection.sync({ force: true });
- })
+  console.log(`App listening on port ${PORT}!`);
+    sequelizeConnection.sync({ force: true }).then(() => require('./seeds'))
+ });

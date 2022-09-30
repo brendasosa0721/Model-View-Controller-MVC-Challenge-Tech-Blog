@@ -47,18 +47,22 @@ const posts = [
 const comments = [
     {
         content: ' this is a bad idea',
-        user_id: 2
+        user_id: 2,
+        post_id: 1
     },
 
     {
         content: 'I love it ',
-        user_id: 1
+        user_id: 1,
+        post_id: 1
     },
 ]
 
-(async () => {
+const plantSeeds = async () => {
 
-    await User.bulkCreate(users); //bulkCreate() method allows you to insert multiple records to your database table with a single function call.
+    await User.bulkCreate(users, {individualHooks: true }); //bulkCreate() method allows you to insert multiple records to your database table with a single function call.
     await Post.bulkCreate(posts);
     await Comment.bulkCreate(comment);
-});
+};
+
+plantSeeds();
