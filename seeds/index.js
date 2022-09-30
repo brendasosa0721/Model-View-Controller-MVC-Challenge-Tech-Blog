@@ -62,7 +62,7 @@ const plantSeeds = async () => {
 
     await User.bulkCreate(users, {individualHooks: true }); //bulkCreate() method allows you to insert multiple records to your database table with a single function call.
     await Post.bulkCreate(posts);
-    await Comment.bulkCreate(comment);
+    await Comment.bulkCreate(comments);
 };
 
 plantSeeds();
