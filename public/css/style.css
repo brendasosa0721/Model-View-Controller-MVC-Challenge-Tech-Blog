@@ -8,6 +8,7 @@ body, html {
   margin: 0;
   font-family: sans-serif;
   color: #333;
+
 }
 
 a {
@@ -131,15 +132,6 @@ main {
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
 }
 
 .comment-form {

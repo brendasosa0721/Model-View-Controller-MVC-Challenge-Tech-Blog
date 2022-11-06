@@ -4,54 +4,62 @@ const Sequelize = require('sequelize');
 const sequelizeConnection = require('../config/sequelizeConnections');
 const bcrypt = require('bcrypt');
 
-const User = sequelizeConnection.define('user', {
+// create our User model
+class User extends Model {
+  // set up method to run on instance data (per user) to check password
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
+// create fields/columns for User model
+User.init(
+  {
     id: {
-        type:Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
-
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
-    username:{
-        type:Sequelize.STRING,
-        allowNull:false,
-        validate:{
-            len:[5, 10],
-
-        }
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-
-    password:{
-        type:Sequelize.STRING,
-        allowNull:false,
-        validate:{
-            len:[5,10]
-        }
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [4]
+      }
     }
+  },
+  {
+    hooks: {
+      // set up beforeCreate lifecycle "hook" functionality
+      async beforeCreate(newUserData) {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
 
-}, {
-    sequelize: sequelizeConnection,
+      async beforeUpdate(updatedUserData) {
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        return updatedUserData;
+      }
+    },
+    sequelize,
     timestamps: false,
     freezeTableName: true,
-    modelName: 'users',
-    underscored: true
-});
-
-
-// Hooks
-User.beforeCreate( async user => {
- user.password = await bcrypt.hash(user.password, 10); // This is protecting the passwords create it with the hashing method.
-}) 
-
-
-//This example below shows what would happen when creating new credentials
-
-// const newUser = {
-//   username: " Joe Smith",
-//   password: "password34",
-// }
-
-// User.create(newUser);
+    underscored: true,
+    modelName: 'user'
+  }
+);
 
 module.exports = User;
