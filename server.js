@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 
 const sequelizeConnection = require('./config/sequelizeConnections');
 const SequilizeStore = require('connect-session-sequelize')(session.Store);
-require("./models");
+
 
 const sess = {
   secret: " Secret",
@@ -39,6 +39,6 @@ const sess = {
 
 
  app.listen(PORT , () => {
-  console.log(`App listening on port ${PORT}!`);
-    sequelizeConnection.sync({ force: true }).then(() => require('./seeds'))
+  
+    sequelizeConnection.sync({ force: false}).then(() => {console.log(`App listening on port ${PORT}!`);})
  });
