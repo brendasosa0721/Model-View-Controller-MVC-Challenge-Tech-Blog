@@ -1,4 +1,4 @@
-## Model-View-Controller-MVC-Tech-Blog
+## Tech-Blog
 
 ## Purpose
 
