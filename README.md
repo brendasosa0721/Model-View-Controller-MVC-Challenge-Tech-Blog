@@ -14,7 +14,11 @@ This is CMS-style blog site similart to a Wordpress site, where developers can p
 
 ## Links & Screenshots
 
-Deployment Link:
+Deployment Link: https://tech-blog-brenda.herokuapp.com/
+
+
+![Screenshot 2022-11-16 at 5 23 43 PM](https://user-images.githubusercontent.com/106204413/202307699-ab63c02a-7b12-4406-a26f-d066023fa910.png)
+
 
 
 
